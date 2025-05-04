@@ -1,0 +1,77 @@
+{% extends 'store/base.html' %}
+{% block title %}Наши Сыры{% endblock %}
+{% load cart_extras %}
+{% block content %}
+<h2 style="text-align: center;">Наши Сыры</h2>
+<div class="product-list">
+  {% for product in products %}
+  <div class="product">
+    <img src="{{ product.image }}" alt="{{ product.name }}" style="max-width: 200px">
+    <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>  <!-- Ссылка на детальную страницу -->
+    <p>{{ product.description|truncatechars:100 }}</p>
+    <strong>{{ product.price }} ₽</strong>
+      
+      <div id="product-{{ product.id }}-actions">
+        {% with product_id=product.id|stringformat:"s" %}
+            {% if product.id|stringformat:"s" in cart %}    
+            <div>
+              <button onclick="updateCart({{ product.id }}, 'decrement')">-</button>
+              <span id="qty-{{ product.id }}">{{ cart|get_item:product_id }}</span>
+              <button onclick="updateCart({{ product.id }}, 'increment')">+</button>
+            </div>
+          {% else %}
+            <form onsubmit="addToCart(event, {{ product.id }})">
+              {% csrf_token %}
+              <button type="submit">Добавить в корзину</button>
+            </form>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+function addToCart(event, productId) {
+  event.preventDefault(); // предотвращаем стандартное поведение формы (перезагрузку)
+  
+  fetch(`/add-to-cart/${productId}/`, {
+    method: 'POST',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+    },
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      // заменяем форму на блок с + / - и количеством
+      const container = document.getElementById(`product-${productId}-actions`);
+      container.innerHTML = `
+        <div>
+          <button onclick="updateCart(${productId}, 'decrement')">-</button>
+          <span id="qty-${productId}">${data.quantity}</span>
+          <button onclick="updateCart(${productId}, 'increment')">+</button>
+        </div>
+      `;
+    }
+  });
+}
+
+function updateCart(productId, action) {
+  fetch(`/update-cart/${productId}/${action}/`, {
+    headers: {'X-Requested-With': 'XMLHttpRequest'}
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.quantity > 0) {
+      document.getElementById(`qty-${productId}`).innerText = data.quantity;
+    } else {
+      // если количество товара 0, обновляем страницу
+      location.reload();
+    }
+  });
+}
+
+</script>
+{% endblock %}

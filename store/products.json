@@ -1,0 +1,152 @@
+[
+    {
+      "model": "store.product",
+      "pk": 1,
+      "fields": {
+        "name": "Камамбер",
+        "description": "Мягкий французский сыр с белой плесенью и нежным вкусом.",
+        "price": "550.00",
+        "image": "https://avatars.mds.yandex.net/i?id=1d8525343459c2cb9e210b5b016b6b84fb5f720d-12582966-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 2,
+      "fields": {
+        "name": "Бри",
+        "description": "Классический сыр с белой плесенью, сливочной текстурой и легким ореховым ароматом.",
+        "price": "600.00",
+        "image": "https://avatars.mds.yandex.net/i?id=d23bcdf27358c1a14bdf00596bb83d03abf98ffa-8187788-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 3,
+      "fields": {
+        "name": "Гауда выдержанная",
+        "description": "Голландский твердый сыр с насыщенным вкусом, выдержанный 12 месяцев.",
+        "price": "720.00",
+        "image": "https://avatars.mds.yandex.net/i?id=5608ab43c3e2c527772f9cd23ca7f9f8e9ef18f5973a4d34-11932700-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 4,
+      "fields": {
+        "name": "Российский",
+        "description": "Традиционный российский сыр с мягким вкусом, идеально подходит для бутербродов.",
+        "price": "420.00",
+        "image": "https://avatars.mds.yandex.net/i?id=749403a685fa7ead3a20afceab3caa33da297f39-5165467-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 5,
+      "fields": {
+        "name": "Чеддер",
+        "description": "Английский сыр с плотной текстурой и ярким вкусом.",
+        "price": "690.00",
+        "image": "https://avatars.mds.yandex.net/i?id=47b08610e856b9b450c1d742c4aae6939cf4423a-8437205-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 6,
+      "fields": {
+        "name": "Пармезан",
+        "description": "Выдержанный твердый сыр с кристаллами и богатым вкусом. Отлично подходит к пасте.",
+        "price": "890.00",
+        "image": "https://avatars.mds.yandex.net/i?id=8592d5fffb07456a66181adc7c58b35d1c3afb1a-3703902-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 7,
+      "fields": {
+        "name": "Моцарелла",
+        "description": "Итальянский сыр, идеально подходящий для пиццы, салатов и закусок.",
+        "price": "500.00",
+        "image": "https://avatars.mds.yandex.net/i?id=2c80c2e43242ea8f70e79d1d0d1f4b520127d4e2-10767526-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 8,
+      "fields": {
+        "name": "Сулугуни",
+        "description": "Грузинский сыр с плотной структурой, идеально подходит для жарки.",
+        "price": "460.00",
+        "image": "https://avatars.mds.yandex.net/i?id=e2db24ea4a13f85d34ea7d282b1cffccdabcc8c6-10119934-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 9,
+      "fields": {
+        "name": "Фета",
+        "description": "Греческий сыр из овечьего и козьего молока, солоноватый и нежный.",
+        "price": "530.00",
+        "image": "https://avatars.mds.yandex.net/i?id=b9a5878dbbaf8556d82197929c63b59212bfca2c-10766948-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 10,
+      "fields": {
+        "name": "Дор Блю",
+        "description": "Немецкий сыр с голубой плесенью и острым вкусом.",
+        "price": "780.00",
+        "image": "https://sun1-18.userapi.com/s/v1/ig2/7JDrTrcdvVc6HixkXYLUSMnBhTRYbhl0qXZm2X8ZVGNRpXl3rHj2upz8_O7GUdbe6HA9n3vp6DmT6eltFok4esX-.jpg?size=400x400&quality=96&crop=217,22,501,501&ava=1"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 11,
+      "fields": {
+        "name": "Тильзитер",
+        "description": "Сыр полутвердый с пряным вкусом, родом из Прибалтики.",
+        "price": "550.00",
+        "image": "https://avatars.mds.yandex.net/i?id=7217a46a1aa5143f79ff35f073f31e17554b1cdb-10805353-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 12,
+      "fields": {
+        "name": "Качотта с трюфелем",
+        "description": "Итальянский сыр с добавлением трюфеля, невероятно ароматный и деликатный.",
+        "price": "950.00",
+        "image": "https://avatars.mds.yandex.net/i?id=97104305d43b7f85d451566e07f879c429e1fa99-3939836-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 13,
+      "fields": {
+        "name": "Маасдам",
+        "description": "Голландский сыр с большими дырками и сладковатым вкусом.",
+        "price": "630.00",
+        "image": "https://avatars.mds.yandex.net/i?id=19e8ce00813b8c45d54c2a8ad6338224ad9754e1-5244955-images-thumbs&n=13"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 14,
+      "fields": {
+        "name": "Проволоне",
+        "description": "Итальянский сыр с выраженным вкусом и ароматом, отлично плавится.",
+        "price": "670.00",
+        "image": "https://i.pinimg.com/736x/d2/bc/6c/d2bc6c554dfedfa6d0b227935baf9edd.jpg"
+      }
+    },
+    {
+      "model": "store.product",
+      "pk": 15,
+      "fields": {
+        "name": "Рокфор",
+        "description": "Французский голубой сыр из овечьего молока с резким вкусом и ароматом.",
+        "price": "870.00",
+        "image": "https://avatars.mds.yandex.net/i?id=92c28b5d645bf63e74214d57fb6f97cdfa818dcf-10577947-images-thumbs&n=13"
+      }
+    }
+]

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Сырная Лавка{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="header">
+    <h1><a href="/">Сырная Лавка</a></h1>
+    <nav style="text-align: center; margin-top: 10px;">
+        <a href="/">Главная</a> |
+        <a href="/cart/">Корзина</a> |
+        <a href="/about/">О нас</a> |
+        <a href="/delivery/">Доставка</a> |
+        
+        {% if user.is_authenticated %}
+          <span>{{ user.username }}</span> |
+          <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Выйти</button>
+          </form>
+        {% else %}
+          <a href="/login/">Вход</a> |
+          <a href="/register/">Регистрация</a>
+        {% endif %}
+      </nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

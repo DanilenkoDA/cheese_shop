@@ -1,0 +1,58 @@
+{% extends 'store/base.html' %}
+{% load cart_extras %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+  <h2>{{ product.name }}</h2>
+  <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
+  <p>{{ product.description }}</p>
+  <h3>{{ product.price }} ₽</h3>
+
+  <div id="product-{{ product.id }}">
+    {% with product_id=product.id|stringformat:"s" %}
+      {% if cart|has_key:product_id %}
+        <div>
+          <button onclick="updateCart({{ product.id }}, 'decrement')">-</button>
+          <span id="qty-{{ product.id }}">{{ cart|get_item:product_id }}</span>
+          <button onclick="updateCart({{ product.id }}, 'increment')">+</button>
+        </div>
+      {% else %}
+        <form onsubmit="addToCart(event, {{ product.id }})">
+          {% csrf_token %}
+          <button type="submit">Добавить в корзину</button>
+        </form>
+      {% endif %}
+    {% endwith %}
+  </div>
+</div>
+
+<script>
+function addToCart(event, productId) {
+  event.preventDefault();
+  fetch(`/add-to-cart/${productId}/`, {
+    method: 'POST',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+    },
+  }).then(res => res.json()).then(data => {
+    if (data.success) location.reload();
+  });
+}
+
+function updateCart(productId, action) {
+  fetch(`/update-cart/${productId}/${action}/`, {
+    headers: {'X-Requested-With': 'XMLHttpRequest'}
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.quantity > 0) {
+      document.getElementById(`qty-${productId}`).innerText = data.quantity;
+    } else {
+      location.reload();
+    }
+  });
+}
+</script>
+{% endblock %}
