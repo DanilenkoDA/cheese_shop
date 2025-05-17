@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    "cheeseshop-production.up.railway.app",
+    "https://cheeseshop-production.up.railway.app",
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
